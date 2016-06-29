@@ -102,12 +102,11 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 
 	@Override
 	public V get(Object key) {
-            for (Entry entry : entries) {
-               if (entry.getKey().equals(key)) {
-                 return entry.getValue();
-               }
-            }
-           return null;
+		Entry entry = findEntry(key);
+		if (entry == null) {
+			return null;
+		}
+		return entry.getValue();
 	}
 
 	@Override
